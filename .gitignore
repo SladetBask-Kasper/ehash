@@ -1,0 +1,4 @@
+__pycache__
+*.pyc
+speedHash.py
+main.py
