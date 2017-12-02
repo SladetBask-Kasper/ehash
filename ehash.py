@@ -8,7 +8,6 @@ class sha:
     def get256(text, __SETTINGS__ = "-none", times = "default"):
 
         TIMES__ = 512
-        text = ""
 
         if times != "default":
             TIMES__ = int(times)
@@ -20,11 +19,15 @@ class sha:
 
         if "-status" in __SETTINGS__:
             for i in range(int(TIMES__)):
-                text += hashlib.sha256( text.encode('utf-8') ).hexdigest()
+                for i in range(5):
+                    text += hashlib.sha256( text.encode('utf-8') ).hexdigest()
+                text = hashlib.sha256(text.encode('utf-8')).hexdigest()
                 print(" STATUS: " + str(text))
         else:
             for i in range(int(TIMES__)):
-                text += hashlib.sha256( text.encode('utf-8') ).hexdigest()
+                for i in range(5):
+                    text += hashlib.sha256( text.encode('utf-8') ).hexdigest()
+                text = hashlib.sha256(text.encode('utf-8')).hexdigest()
 
         return str(text)
     def get512(text, __SETTINGS__ = "-none"):
