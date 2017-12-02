@@ -2,6 +2,8 @@ import hashlib
 
 class sha:
 
+    def main(text, __SETTINGS__ = "-none"):
+        return get512(text, __SETTINGS__)
     def get512(text, __SETTINGS__ = "-none"):
 
         TIMES__ = 512
@@ -46,7 +48,7 @@ class sha:
         return str(text)
 def genGoodPass(text):
     if (len(text) < 64):
-        hashed = ehashClass.get512(text, "-EXTRA -EXTRAPLUS -HARD")
+        hashed = sha.get512(text, "-EXTRA -EXTRAPLUS -HARD")
     else:
-        hashed = ehashClass.get512(ehashClass.get512(text, "-EXTRA -EXTRAPLUS -BIG"), "-EXTRA -EXTRAPLUS -HARD")
+        hashed = sha.get512(sha.get512(text, "-EXTRA -EXTRAPLUS -BIG"), "-EXTRA -EXTRAPLUS -HARD")
     return str(hashed)
