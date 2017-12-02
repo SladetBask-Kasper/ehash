@@ -4,6 +4,29 @@ class sha:
 
     def main(text, __SETTINGS__ = "-none"):
         return get512(text, __SETTINGS__)
+
+    def get256(text, __SETTINGS__ = "-none", times = "default"):
+
+        TIMES__ = 512
+        text = ""
+
+        if times != "default":
+            TIMES__ = int(times)
+
+        if __SETTINGS__ == "-none":
+            pass
+        if "-BIG" in __SETTINGS__:
+            TIMES__ * (TIMES__ + TIMES__)
+
+        if "-status" in __SETTINGS__:
+            for i in range(int(TIMES__)):
+                text += hashlib.sha256( text.encode('utf-8') ).hexdigest()
+                print(" STATUS: " + str(text))
+        else:
+            for i in range(int(TIMES__)):
+                text += hashlib.sha256( text.encode('utf-8') ).hexdigest()
+
+        return str(text)
     def get512(text, __SETTINGS__ = "-none"):
 
         TIMES__ = 512
