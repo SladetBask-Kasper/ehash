@@ -4,6 +4,6 @@ This makes it so that bute-forcing a password list can take really long, Example
 
 ### Documentation
 <b>basic hash</b><br>
-<code>import ehash</code> 
-<code>x = ehash.sha.main("password here") </code>
+<code>import ehash</code><br>
+<code>x = ehash.sha.main("password here") </code><br>
 <code>print(x)</code>
